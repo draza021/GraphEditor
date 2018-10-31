@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class Symbol: Symboling {
+final class Symbol: GenericSymbol, Hashable {
     var position: CGPoint
     var size: CGSize
     var color: UIColor
@@ -23,5 +23,16 @@ final class Symbol: Symboling {
     
     func getAsRectangle() -> CGRect {
         return CGRect(origin: position, size: size)
+    }
+    
+    static func == (lhs: Symbol, rhs: Symbol) -> Bool {
+        guard lhs.hashValue == rhs.hashValue else {
+            return false
+        }
+        return true
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(text)
     }
 }

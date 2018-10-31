@@ -12,9 +12,10 @@
 		C21842C12188A03D003CB121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21842BF2188A03D003CB121 /* Main.storyboard */; };
 		C21842C32188A03D003CB121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21842C22188A03D003CB121 /* Assets.xcassets */; };
 		C21842C62188A03D003CB121 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21842C42188A03D003CB121 /* LaunchScreen.storyboard */; };
+		C24694E02189979500775B4F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24694DF2189979500775B4F /* Model.swift */; };
 		C2AC44542188A3BD00AD7F86 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AC44532188A3BD00AD7F86 /* Default-568h@2x.png */; };
-		C2AC44592188A9C800AD7F86 /* Modeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC44582188A9C800AD7F86 /* Modeling.swift */; };
-		C2AC445C2188AA4600AD7F86 /* Symboling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC445B2188AA4600AD7F86 /* Symboling.swift */; };
+		C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC44582188A9C800AD7F86 /* GenericModel.swift */; };
+		C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */; };
 		C2AC445E2188AB5500AD7F86 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC445D2188AB5500AD7F86 /* Symbol.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,9 +27,10 @@
 		C21842C22188A03D003CB121 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C21842C52188A03D003CB121 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C21842C72188A03D003CB121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C24694DF2189979500775B4F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C2AC44532188A3BD00AD7F86 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C2AC44582188A9C800AD7F86 /* Modeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modeling.swift; sourceTree = "<group>"; };
-		C2AC445B2188AA4600AD7F86 /* Symboling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symboling.swift; sourceTree = "<group>"; };
+		C2AC44582188A9C800AD7F86 /* GenericModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
+		C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSymbol.swift; sourceTree = "<group>"; };
 		C2AC445D2188AB5500AD7F86 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				C2AC445A2188AA3100AD7F86 /* Symbols */,
-				C2AC44582188A9C800AD7F86 /* Modeling.swift */,
+				C2AC44582188A9C800AD7F86 /* GenericModel.swift */,
+				C24694DF2189979500775B4F /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,7 +121,7 @@
 		C2AC445A2188AA3100AD7F86 /* Symbols */ = {
 			isa = PBXGroup;
 			children = (
-				C2AC445B2188AA4600AD7F86 /* Symboling.swift */,
+				C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */,
 				C2AC445D2188AB5500AD7F86 /* Symbol.swift */,
 			);
 			path = Symbols;
@@ -198,8 +201,9 @@
 			files = (
 				C21842BE2188A03D003CB121 /* MainViewController.swift in Sources */,
 				C2AC445E2188AB5500AD7F86 /* Symbol.swift in Sources */,
-				C2AC445C2188AA4600AD7F86 /* Symboling.swift in Sources */,
-				C2AC44592188A9C800AD7F86 /* Modeling.swift in Sources */,
+				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
+				C24694E02189979500775B4F /* Model.swift in Sources */,
+				C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */,
 				C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

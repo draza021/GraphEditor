@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Symboling: class {
+protocol GenericSymbol: class {
     var position: CGPoint { get set }
     var size: CGSize { get set }
     var color: UIColor { get set }

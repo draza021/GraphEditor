@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Modeling: class {
+protocol GenericModel: class {
     var symbols: [Symbol] { get set }
     func addSymbol(symbol: Symbol)
     func addSymbols(symbols: [Symbol])
