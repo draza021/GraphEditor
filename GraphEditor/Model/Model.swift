@@ -41,12 +41,18 @@ final class Model: GenericModel {
     func removeSelected() {
         // TODO: need to implement selection
     }
+    
+    func logSymbolsToConsole() {
+        symbols.forEach { print($0.position) }
+    }
 }
 
 // MARK: - Notification methods
 extension Model {
     func fireSymbolsAdded(symbols: [Symbol]) {
-        // TODO: add notifications
+        let nc = NotificationCenter.default
+        nc.post(name: NSNotification.Name.notificationSymbolAdded, object: nil, userInfo: ["symbols": symbols])
+        print("notificationSymbolsAdded fired!")
     }
     
     func fireSymbolsRemoved(symbols: [Symbol]) {
