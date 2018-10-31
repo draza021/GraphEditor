@@ -99,7 +99,7 @@ extension GraphView {
         print("notificationSymbolsAdded received!")
         if let userInfo = notification.userInfo as? [String: Any] {
             if let symbol = userInfo["symbols"] as? [Symbol] {
-                // do something
+                // what do we do with notifications?
             }
         }
         redraw()
