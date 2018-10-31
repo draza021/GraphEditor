@@ -31,11 +31,14 @@ class GraphView: UIView {
         if !model.symbols.isEmpty {
             guard let ctx = UIGraphicsGetCurrentContext() else { return }
             model.symbols.forEach { (symbol) in
+                let nsattributedString = createAttributedString(symbol)
                 ctx.setFillColor(symbol.color.cgColor)
                 ctx.setStrokeColor(UIColor.gray.cgColor)
                 ctx.setLineWidth(5)
-                ctx.addRect(symbol.getAsRectangle())
-                ctx.drawPath(using: .fillStroke)
+                let rect = symbol.getAsRectangle()
+                nsattributedString.draw(in: rect)
+                ctx.addRect(rect)
+                ctx.drawPath(using: .stroke)
             }
         }
     }
@@ -59,12 +62,15 @@ extension GraphView {
     }
     
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        // original position of a tap
         let position = gestureRecognizer.location(in: self)
         let size = CGSize(width: 200, height: 100)
-        let symbol = Symbol(with: position, size: size, color: .blue, text: "Default text")
+        
+        // we would like to calculate center of a rect and have a position to calculate as a center
+        let centerPoint = CGPoint(x: position.x - (size.width / 2), y: position.y - (size.height / 2))
+        print("center point -> ", centerPoint)
+        let symbol = Symbol(with: centerPoint, size: size, color: .blue, text: "Default text")
         model.addSymbol(symbol: symbol)
-        print("handle tap called")
-        print("position: \(position)")
     }
     
     @objc func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {
@@ -95,7 +101,6 @@ extension GraphView {
             if let symbol = userInfo["symbols"] as? [Symbol] {
                 // do something
             }
-            
         }
         redraw()
     }
@@ -104,8 +109,22 @@ extension GraphView {
         setNeedsDisplay()
         model.logSymbolsToConsole()
     }
+    
+    private func createAttributedString(_ symbol: Symbol) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attributes = [
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0),
+            NSAttributedString.Key.foregroundColor: UIColor.blue
+        ]
+        
+        guard let index = model.symbols.index(where: { $0 === symbol }) else { fatalError() }
+        let myText = "Symbol # \(index)"
+        let attributedString = NSAttributedString(string: myText, attributes: attributes)
+        return attributedString
+    }
 }
 
-extension Notification.Name {
-    static let notificationSymbolAdded = NSNotification.Name("notificationSymbolAdded")
-}
+
