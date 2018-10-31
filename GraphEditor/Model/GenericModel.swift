@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GenericModel: class {
-    var symbols: [Symbol] { get set }
+    var symbols: [Symbol] { get }
     func addSymbol(symbol: Symbol)
     func addSymbols(symbols: [Symbol])
     func removeSymbol(symbol: Symbol)

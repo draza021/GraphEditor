@@ -9,7 +9,7 @@
 import Foundation
 
 final class Model: GenericModel {
-    var symbols: [Symbol] = []
+    private(set) var symbols: [Symbol] = []
     
     func addSymbol(symbol: Symbol) {
         symbols.append(symbol)
