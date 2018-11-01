@@ -15,6 +15,7 @@
 		C22259AF2189AD27002373CA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259AE2189AD27002373CA /* GraphView.swift */; };
 		C22259B22189E866002373CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259B12189E866002373CA /* Extensions.swift */; };
 		C24694E02189979500775B4F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24694DF2189979500775B4F /* Model.swift */; };
+		C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B1218AF29000E70265 /* ServiceRegistry.swift */; };
 		C2AC44542188A3BD00AD7F86 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AC44532188A3BD00AD7F86 /* Default-568h@2x.png */; };
 		C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC44582188A9C800AD7F86 /* GenericModel.swift */; };
 		C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */; };
@@ -32,6 +33,7 @@
 		C22259AE2189AD27002373CA /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C22259B12189E866002373CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C24694DF2189979500775B4F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C28C77B1218AF29000E70265 /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		C2AC44532188A3BD00AD7F86 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2AC44582188A9C800AD7F86 /* GenericModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
 		C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSymbol.swift; sourceTree = "<group>"; };
@@ -68,6 +70,8 @@
 		C21842BA2188A03D003CB121 /* GraphEditor */ = {
 			isa = PBXGroup;
 			children = (
+				C28C77B0218AF24B00E70265 /* Commands */,
+				C28C77AF218AF23F00E70265 /* Actions */,
 				C22259B02189E84E002373CA /* Helper */,
 				C2AC44572188A51400AD7F86 /* StateMachine */,
 				C2AC44562188A4D200AD7F86 /* View */,
@@ -93,6 +97,7 @@
 				C21842C72188A03D003CB121 /* Info.plist */,
 				C21842C42188A03D003CB121 /* LaunchScreen.storyboard */,
 				C21842BB2188A03D003CB121 /* AppDelegate.swift */,
+				C28C77B1218AF29000E70265 /* ServiceRegistry.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -103,6 +108,20 @@
 				C22259B12189E866002373CA /* Extensions.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C28C77AF218AF23F00E70265 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		C28C77B0218AF24B00E70265 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 		C2AC44552188A4C900AD7F86 /* Model */ = {
@@ -219,6 +238,7 @@
 				C22259B22189E866002373CA /* Extensions.swift in Sources */,
 				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
 				C24694E02189979500775B4F /* Model.swift in Sources */,
+				C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */,
 				C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */,
 				C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */,
 			);

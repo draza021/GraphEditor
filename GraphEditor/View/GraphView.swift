@@ -9,7 +9,9 @@
 import UIKit
 
 class GraphView: UIView {
-    var model = Model()
+    lazy var model: Model = {
+       return ServiceRegistry.sharedInstance.model
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
