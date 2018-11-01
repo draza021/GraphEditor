@@ -79,15 +79,6 @@ extension GraphView {
             break
         }
         
-        // original position of a tap
-        let position = gestureRecognizer.location(in: self)
-        let size = CGSize(width: 200, height: 100)
-        
-        // we would like to calculate center of a rect and have a position to calculate as a center
-        let centerPoint = CGPoint(x: position.x - (size.width / 2), y: position.y - (size.height / 2))
-        print("center point -> ", centerPoint)
-        let symbol = Symbol(with: centerPoint, size: size, color: .blue, text: "Default text")
-        model.addSymbol(symbol: symbol)
     }
     
     @objc func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {
