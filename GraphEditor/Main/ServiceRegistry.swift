@@ -11,8 +11,10 @@ import Foundation
 class ServiceRegistry {
     static let sharedInstance = ServiceRegistry()
     let model: Model
+    let context: Context
     
     private init() {
         model = Model()
+        context = Context()
     }
 }

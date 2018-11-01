@@ -12,6 +12,7 @@ class GraphView: UIView {
     lazy var model: Model = {
        return ServiceRegistry.sharedInstance.model
     }()
+    private var currentState: State = SelectionState()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,6 +65,20 @@ extension GraphView {
     }
     
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        switch gestureRecognizer.state {
+        case UIGestureRecognizer.State.began:
+            currentState.tapBegan(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.changed:
+            currentState.tapChanged(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.ended, .cancelled, .failed:
+            currentState.tapEnded(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.possible:
+            break
+        }
+        
         // original position of a tap
         let position = gestureRecognizer.location(in: self)
         let size = CGSize(width: 200, height: 100)
@@ -76,11 +91,35 @@ extension GraphView {
     }
     
     @objc func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {
-        
+        switch gestureRecognizer.state {
+        case UIGestureRecognizer.State.began:
+            currentState.pinchBegan(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.changed:
+            currentState.pinchChanged(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.ended, .cancelled, .failed:
+            currentState.pinchEnded(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.possible:
+            break
+        }
     }
     
     @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
-        
+        switch gestureRecognizer.state {
+        case UIGestureRecognizer.State.began:
+            currentState.panBegan(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.changed:
+            currentState.panChanged(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.ended, .cancelled, .failed:
+            currentState.panEnded(recognizer: gestureRecognizer)
+            break
+        case UIGestureRecognizer.State.possible:
+            break
+        }
     }
 }
 
@@ -90,6 +129,8 @@ extension GraphView {
         addPinchGestureRecognizer()
         addPanGestureRecognizer()
         addObservers()
+        ServiceRegistry.sharedInstance.context.graphView = self
+        print("context.graphview has been SET")
     }
     
     private func addObservers() {

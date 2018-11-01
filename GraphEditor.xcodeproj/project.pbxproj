@@ -18,6 +18,9 @@
 		C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B1218AF29000E70265 /* ServiceRegistry.swift */; };
 		C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B3218AF88A00E70265 /* GenericState.swift */; };
 		C28C77B6218AF9E000E70265 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B5218AF9E000E70265 /* State.swift */; };
+		C28C77B8218B2DF300E70265 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B7218B2DF300E70265 /* SelectionState.swift */; };
+		C28C77BA218B332E00E70265 /* GenericContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B9218B332E00E70265 /* GenericContext.swift */; };
+		C28C77BC218B341900E70265 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77BB218B341900E70265 /* Context.swift */; };
 		C2AC44542188A3BD00AD7F86 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AC44532188A3BD00AD7F86 /* Default-568h@2x.png */; };
 		C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC44582188A9C800AD7F86 /* GenericModel.swift */; };
 		C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */; };
@@ -38,6 +41,9 @@
 		C28C77B1218AF29000E70265 /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		C28C77B3218AF88A00E70265 /* GenericState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericState.swift; sourceTree = "<group>"; };
 		C28C77B5218AF9E000E70265 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		C28C77B7218B2DF300E70265 /* SelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
+		C28C77B9218B332E00E70265 /* GenericContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericContext.swift; sourceTree = "<group>"; };
+		C28C77BB218B341900E70265 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		C2AC44532188A3BD00AD7F86 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2AC44582188A9C800AD7F86 /* GenericModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
 		C2AC445B2188AA4600AD7F86 /* GenericSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSymbol.swift; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 			children = (
 				C28C77B3218AF88A00E70265 /* GenericState.swift */,
 				C28C77B5218AF9E000E70265 /* State.swift */,
+				C28C77B7218B2DF300E70265 /* SelectionState.swift */,
+				C28C77B9218B332E00E70265 /* GenericContext.swift */,
+				C28C77BB218B341900E70265 /* Context.swift */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -241,13 +250,16 @@
 				C21842BE2188A03D003CB121 /* MainViewController.swift in Sources */,
 				C2AC445E2188AB5500AD7F86 /* Symbol.swift in Sources */,
 				C22259AF2189AD27002373CA /* GraphView.swift in Sources */,
+				C28C77BC218B341900E70265 /* Context.swift in Sources */,
 				C28C77B6218AF9E000E70265 /* State.swift in Sources */,
 				C22259B22189E866002373CA /* Extensions.swift in Sources */,
 				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
+				C28C77B8218B2DF300E70265 /* SelectionState.swift in Sources */,
 				C24694E02189979500775B4F /* Model.swift in Sources */,
 				C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */,
 				C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */,
 				C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */,
+				C28C77BA218B332E00E70265 /* GenericContext.swift in Sources */,
 				C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
