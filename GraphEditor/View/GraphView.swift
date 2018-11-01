@@ -35,7 +35,7 @@ class GraphView: UIView {
             guard let ctx = UIGraphicsGetCurrentContext() else { return }
             model.symbols.forEach { (symbol) in
                 let nsattributedString = createAttributedString(symbol)
-                ctx.setFillColor(symbol.color.cgColor)
+                ctx.setFillColor(UIColor.gray.cgColor)
                 ctx.setStrokeColor(UIColor.gray.cgColor)
                 ctx.setLineWidth(5)
                 let rect = symbol.getAsRectangle()
@@ -78,7 +78,6 @@ extension GraphView {
         case UIGestureRecognizer.State.possible:
             break
         }
-        
     }
     
     @objc func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {
@@ -151,7 +150,7 @@ extension GraphView {
         let attributes = [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0),
-            NSAttributedString.Key.foregroundColor: UIColor.blue
+            NSAttributedString.Key.foregroundColor: UIColor.red,
         ]
         
         guard let index = model.symbols.index(where: { $0 === symbol }) else { fatalError() }

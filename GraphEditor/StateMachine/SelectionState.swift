@@ -44,7 +44,7 @@ class SelectionState: State {
         
         // here we create a symbol and store it in symbols array -> Model.symbols
         // we need to use Command pattern to call command to insert symbol to keep track for undo-ing
-        let symbol = Symbol(with: centerPoint, size: size, color: .blue, text: "Default text")
+        let symbol = Symbol(with: centerPoint, size: size, color: .black, text: "Default text")
         model.addSymbol(symbol: symbol)
     }
 }
