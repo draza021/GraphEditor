@@ -9,9 +9,9 @@
 import UIKit
 
 class GraphView: UIView {
-    lazy var model: Model = {
+    var model: Model {
        return ServiceRegistry.sharedInstance.model
-    }()
+    }
     private var currentState: State = SelectionState()
     
     override init(frame: CGRect) {

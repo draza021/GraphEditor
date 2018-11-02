@@ -14,9 +14,9 @@ class SelectionState: State {
     private lazy var graphView: GraphView? = {
        return ServiceRegistry.sharedInstance.context.graphView
     }()
-    lazy var model: Model = {
+    var model: Model {
         return ServiceRegistry.sharedInstance.model
-    }()
+    }
     var count: String {
         return String(ServiceRegistry.sharedInstance.model.symbols.count)
     }
