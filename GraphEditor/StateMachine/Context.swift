@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Context: GenericContext {
+class Context {
     var lastPosition: CGPoint?
     var symbolHit: Symbol?
     var graphView: GraphView?

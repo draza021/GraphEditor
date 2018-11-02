@@ -32,18 +32,29 @@ class GraphView: UIView {
     
     override func draw(_ rect: CGRect) {
         if !model.symbols.isEmpty {
-            guard let ctx = UIGraphicsGetCurrentContext() else { return }
             model.symbols.forEach { (symbol) in
-                let nsattributedString = createAttributedString(symbol)
-                ctx.setFillColor(UIColor.gray.cgColor)
-                ctx.setStrokeColor(UIColor.gray.cgColor)
-                ctx.setLineWidth(5)
-                let rect = symbol.getAsRectangle()
-                nsattributedString.draw(in: rect)
-                ctx.addRect(rect)
-                ctx.drawPath(using: .stroke)
+                let path = UIBezierPath(rect: symbol.getAsRectangle())
+                path.lineWidth = 5
+                UIColor.lightGray.setStroke()
+                UIColor.gray.setFill()
+                path.fill()
+                path.stroke()
+                createTextLayerIn(symbol)
             }
         }
+    }
+    
+    func createTextLayerIn(_ symbol: Symbol) {
+        let textLayer = CATextLayer()
+        textLayer.string = symbol.text
+        textLayer.foregroundColor = UIColor.white.cgColor
+        textLayer.font = UIFont(name: "Avenir", size: 15.0)
+        textLayer.fontSize = 15.0
+        textLayer.alignmentMode = CATextLayerAlignmentMode.center
+        textLayer.backgroundColor = UIColor.orange.cgColor
+        textLayer.frame = symbol.getAsRectangle()
+        textLayer.contentsScale = UIScreen.main.scale
+        self.layer.addSublayer(textLayer)
     }
 }
 
