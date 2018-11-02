@@ -13,6 +13,8 @@ class GraphView: UIView {
        return ServiceRegistry.sharedInstance.model
     }
     private var currentState: State = SelectionState()
+    var elementPainters = [SymbolPainter]()
+    var painter: SymbolPainter?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,28 +33,13 @@ class GraphView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        if !model.symbols.isEmpty {
-            model.symbols.forEach { (symbol) in
-                let path = UIBezierPath(rect: symbol.getAsRectangle())
-                path.lineWidth = 5
-                UIColor.black.setStroke()
-                path.stroke()
-                createTextLayerIn(symbol)
-            }
+        guard let currentContext = UIGraphicsGetCurrentContext() else { return }
+        currentContext.saveGState()
+        for painter in elementPainters {
+            painter.draw(context: currentContext)
         }
-    }
-    
-    func createTextLayerIn(_ symbol: Symbol) {
-        let textLayer = CATextLayer()
-        textLayer.string = symbol.text
-        textLayer.foregroundColor = UIColor.white.cgColor
-        textLayer.font = UIFont(name: "Avenir", size: 15.0)
-        textLayer.fontSize = 15.0
-        textLayer.alignmentMode = CATextLayerAlignmentMode.center
-        textLayer.backgroundColor = UIColor.orange.cgColor
-        textLayer.frame = symbol.getAsRectangle()
-        textLayer.contentsScale = UIScreen.main.scale
-        self.layer.addSublayer(textLayer)
+        
+        currentContext.restoreGState()
     }
 }
 
@@ -134,14 +121,19 @@ extension GraphView {
     
     private func addObservers() {
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(handleNotification(_:)), name: NSNotification.Name.notificationSymbolAdded, object: nil)
+        nc.addObserver(self, selector: #selector(handleSymbolAddedNotification(_:)), name: NSNotification.Name.notificationSymbolAdded, object: nil)
     }
     
-    @objc func handleNotification(_ notification: Notification) {
+    @objc func handleSymbolAddedNotification(_ notification: Notification) {
         print("notificationSymbolsAdded received!")
         if let userInfo = notification.userInfo as? [String: Any] {
-            if let symbol = userInfo["symbols"] as? [Symbol] {
+            if let symbols = userInfo["symbols"] as? [Symbol] {
                 // what do we do with notifications?
+                // for each symbol we initialize painter with symbol
+                for symbol in symbols {
+                    painter = PainterRectangle(symbol)
+                    elementPainters.append(painter!)
+                }
             }
         }
         redraw()
@@ -150,22 +142,6 @@ extension GraphView {
     func redraw() {
         setNeedsDisplay()
         model.logSymbolsToConsole()
-    }
-    
-    private func createAttributedString(_ symbol: Symbol) -> NSAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        
-        let attributes = [
-            NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0),
-            NSAttributedString.Key.foregroundColor: UIColor.red,
-        ]
-        
-        guard let index = model.symbols.index(where: { $0 === symbol }) else { fatalError() }
-        let myText = "Symbol # \(index)"
-        let attributedString = NSAttributedString(string: myText, attributes: attributes)
-        return attributedString
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C207034F218C5593002586E7 /* SymbolPainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207034E218C5593002586E7 /* SymbolPainter.swift */; };
+		C2070351218C5727002586E7 /* PainterRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2070350218C5727002586E7 /* PainterRectangle.swift */; };
 		C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21842BB2188A03D003CB121 /* AppDelegate.swift */; };
 		C21842BE2188A03D003CB121 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21842BD2188A03D003CB121 /* MainViewController.swift */; };
 		C21842C12188A03D003CB121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21842BF2188A03D003CB121 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C207034E218C5593002586E7 /* SymbolPainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPainter.swift; sourceTree = "<group>"; };
+		C2070350218C5727002586E7 /* PainterRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PainterRectangle.swift; sourceTree = "<group>"; };
 		C21842B82188A03D003CB121 /* GraphEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21842BB2188A03D003CB121 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C21842BD2188A03D003CB121 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C207034D218C5580002586E7 /* Painters */ = {
+			isa = PBXGroup;
+			children = (
+				C207034E218C5593002586E7 /* SymbolPainter.swift */,
+				C2070350218C5727002586E7 /* PainterRectangle.swift */,
+			);
+			path = Painters;
+			sourceTree = "<group>";
+		};
 		C21842AF2188A03C003CB121 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 		C2AC44562188A4D200AD7F86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C207034D218C5580002586E7 /* Painters */,
 				C21842BD2188A03D003CB121 /* MainViewController.swift */,
 				C21842BF2188A03D003CB121 /* Main.storyboard */,
 				C22259AE2189AD27002373CA /* GraphView.swift */,
@@ -248,9 +262,11 @@
 				C2AC445E2188AB5500AD7F86 /* Symbol.swift in Sources */,
 				C22259AF2189AD27002373CA /* GraphView.swift in Sources */,
 				C28C77BC218B341900E70265 /* Context.swift in Sources */,
+				C2070351218C5727002586E7 /* PainterRectangle.swift in Sources */,
 				C28C77B6218AF9E000E70265 /* State.swift in Sources */,
 				C22259B22189E866002373CA /* Extensions.swift in Sources */,
 				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
+				C207034F218C5593002586E7 /* SymbolPainter.swift in Sources */,
 				C28C77B8218B2DF300E70265 /* SelectionState.swift in Sources */,
 				C24694E02189979500775B4F /* Model.swift in Sources */,
 				C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */,
