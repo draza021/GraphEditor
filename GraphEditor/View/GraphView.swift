@@ -35,9 +35,7 @@ class GraphView: UIView {
             model.symbols.forEach { (symbol) in
                 let path = UIBezierPath(rect: symbol.getAsRectangle())
                 path.lineWidth = 5
-                UIColor.lightGray.setStroke()
-                UIColor.gray.setFill()
-                path.fill()
+                UIColor.black.setStroke()
                 path.stroke()
                 createTextLayerIn(symbol)
             }
