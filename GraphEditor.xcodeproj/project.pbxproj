@@ -16,6 +16,10 @@
 		C21842C62188A03D003CB121 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21842C42188A03D003CB121 /* LaunchScreen.storyboard */; };
 		C22259AF2189AD27002373CA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259AE2189AD27002373CA /* GraphView.swift */; };
 		C22259B22189E866002373CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259B12189E866002373CA /* Extensions.swift */; };
+		C226ED65219068C40028C640 /* ModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED64219068C40028C640 /* ModelHelper.swift */; };
+		C226ED672190713A0028C640 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED662190713A0028C640 /* SelectionModel.swift */; };
+		C226ED69219078830028C640 /* GenericSelectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED68219078830028C640 /* GenericSelectionHandler.swift */; };
+		C226ED6B21907ABB0028C640 /* SelectionHandleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED6A21907ABB0028C640 /* SelectionHandleHandler.swift */; };
 		C24694E02189979500775B4F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24694DF2189979500775B4F /* Model.swift */; };
 		C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B1218AF29000E70265 /* ServiceRegistry.swift */; };
 		C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B3218AF88A00E70265 /* GenericState.swift */; };
@@ -40,6 +44,10 @@
 		C21842C72188A03D003CB121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C22259AE2189AD27002373CA /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C22259B12189E866002373CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C226ED64219068C40028C640 /* ModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHelper.swift; sourceTree = "<group>"; };
+		C226ED662190713A0028C640 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
+		C226ED68219078830028C640 /* GenericSelectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionHandler.swift; sourceTree = "<group>"; };
+		C226ED6A21907ABB0028C640 /* SelectionHandleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHandleHandler.swift; sourceTree = "<group>"; };
 		C24694DF2189979500775B4F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C28C77B1218AF29000E70265 /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		C28C77B3218AF88A00E70265 /* GenericState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericState.swift; sourceTree = "<group>"; };
@@ -151,6 +159,8 @@
 				C2AC445A2188AA3100AD7F86 /* Symbols */,
 				C2AC44582188A9C800AD7F86 /* GenericModel.swift */,
 				C24694DF2189979500775B4F /* Model.swift */,
+				C226ED64219068C40028C640 /* ModelHelper.swift */,
+				C226ED662190713A0028C640 /* SelectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +172,8 @@
 				C21842BD2188A03D003CB121 /* MainViewController.swift */,
 				C21842BF2188A03D003CB121 /* Main.storyboard */,
 				C22259AE2189AD27002373CA /* GraphView.swift */,
+				C226ED68219078830028C640 /* GenericSelectionHandler.swift */,
+				C226ED6A21907ABB0028C640 /* SelectionHandleHandler.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,7 +272,9 @@
 			files = (
 				C21842BE2188A03D003CB121 /* MainViewController.swift in Sources */,
 				C2AC445E2188AB5500AD7F86 /* Symbol.swift in Sources */,
+				C226ED672190713A0028C640 /* SelectionModel.swift in Sources */,
 				C22259AF2189AD27002373CA /* GraphView.swift in Sources */,
+				C226ED6B21907ABB0028C640 /* SelectionHandleHandler.swift in Sources */,
 				C28C77BC218B341900E70265 /* Context.swift in Sources */,
 				C2070351218C5727002586E7 /* PainterRectangle.swift in Sources */,
 				C28C77B6218AF9E000E70265 /* State.swift in Sources */,
@@ -268,9 +282,11 @@
 				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
 				C207034F218C5593002586E7 /* SymbolPainter.swift in Sources */,
 				C28C77B8218B2DF300E70265 /* SelectionState.swift in Sources */,
+				C226ED69219078830028C640 /* GenericSelectionHandler.swift in Sources */,
 				C24694E02189979500775B4F /* Model.swift in Sources */,
 				C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */,
 				C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */,
+				C226ED65219068C40028C640 /* ModelHelper.swift in Sources */,
 				C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */,
 				C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */,
 			);

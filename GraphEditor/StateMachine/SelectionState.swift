@@ -20,6 +20,7 @@ class SelectionState: State {
     var count: String {
         return String(ServiceRegistry.sharedInstance.model.symbols.count)
     }
+    let selectionHandler = SelectionHandleHandler()
     
     override func stateStarted() {
         freshlySelected = false
@@ -36,9 +37,52 @@ class SelectionState: State {
     
     override func tapEnded(recognizer: UITapGestureRecognizer) {
         print("Tap ended -> ", recognizer.location(in: graphView))
-        
-        // original position of a tap
         let position = recognizer.location(in: graphView)
+
+        ServiceRegistry.sharedInstance.context.lastPosition = transformToUserSpace(point: position)
+        ServiceRegistry.sharedInstance.context.symbolHit = ModelHelper.symbolAtPoint(ServiceRegistry.sharedInstance.context.lastPosition!)
+        
+        if ServiceRegistry.sharedInstance.selection.selection.count > 0 {
+            for symbol in ServiceRegistry.sharedInstance.selection.selection {
+                let handle = selectionHandler.getHandleForSymbol(symbol: symbol, point: ServiceRegistry.sharedInstance.context.lastPosition!, scale: 1)
+                if handle != .none {
+                    return
+                }
+            }
+            if ServiceRegistry.sharedInstance.context.symbolHit == nil {
+                freeToAdd = false
+                ServiceRegistry.sharedInstance.selection.clearSelection()
+                return
+            }
+        }
+        
+        if ServiceRegistry.sharedInstance.context.symbolHit != nil {
+            if ServiceRegistry.sharedInstance.selection.selection.contains(ServiceRegistry.sharedInstance.context.symbolHit!) {
+                freeToAdd = false
+                ServiceRegistry.sharedInstance.selection.addToSelection(symbol: ServiceRegistry.sharedInstance.context.symbolHit!)
+                freshlySelected = true
+            }
+            return
+        }
+        
+        if freshlySelected && ServiceRegistry.sharedInstance.context.symbolHit != nil {
+            ServiceRegistry.sharedInstance.selection.removeFromSelection(symbol: ServiceRegistry.sharedInstance.context.symbolHit!)
+            return
+        }
+        freshlySelected = false
+        
+        //add new symbol
+        if freeToAdd {
+            addNewSymbol(position)
+        } else {
+            freeToAdd = true
+        }
+    }
+}
+
+// MARK: - Private func
+extension SelectionState {
+    private func addNewSymbol(_ position: CGPoint) {
         let size = CGSize(width: 200, height: 100)
         
         // we would like to calculate center of a rect and have a position to calculate as a center

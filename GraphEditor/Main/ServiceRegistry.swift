@@ -12,9 +12,11 @@ class ServiceRegistry {
     static let sharedInstance = ServiceRegistry()
     let model: Model
     let context: Context
+    let selection: SelectionModel
     
     private init() {
         model = Model()
         context = Context()
+        selection = SelectionModel()
     }
 }
