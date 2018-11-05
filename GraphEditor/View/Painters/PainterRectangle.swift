@@ -16,9 +16,9 @@ class PainterRectangle: SymbolPainter {
         context.setFillColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         let ctx = ServiceRegistry.sharedInstance.context
         let point = self.symbol.position
-        let transformedPosition = point.applying(ctx.transform!)
+        let transformedPosition = point.applying(ctx.transform)
         let size = self.symbol.size
-        let transformedSize = size.applying(ctx.transform!)
+        let transformedSize = size.applying(ctx.transform)
         
         let rect = CGRect(x: transformedPosition.x, y: transformedPosition.y, width: transformedSize.width, height: transformedSize.height)
         context.fill(rect)
@@ -38,7 +38,7 @@ extension PainterRectangle {
         let yOffset = contextRect.origin.y + (contextRect.size.height) / 2.0 - 8
         let textRect = CGRect(x: contextRect.origin.x, y: yOffset, width: contextRect.size.width, height: contextRect.size.height)
         
-        guard let transform = ServiceRegistry.sharedInstance.context.transform else { return }
+        let transform = ServiceRegistry.sharedInstance.context.transform
         let textTransform = CGAffineTransform(a: transform.a, b: transform.b, c: transform.c, d: -transform.d, tx: transform.tx, ty: transform.ty)
         context.textMatrix = textTransform
         

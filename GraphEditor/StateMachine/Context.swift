@@ -12,9 +12,9 @@ class Context {
     var lastPosition: CGPoint?
     var symbolHit: Symbol?
     var graphView: GraphView?
-    var scale: CGFloat?
-    var transform: CGAffineTransform?
-    var symbolIndex: Int?
+    var scale: CGFloat
+    var transform: CGAffineTransform
+    var symbolIndex: Int
     
     init() {
         scale = 1.0
