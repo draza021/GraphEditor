@@ -11,9 +11,9 @@ import UIKit
 class SelectionState: State {
     private var freshlySelected: Bool = false
     private var freeToAdd: Bool = true
-    private lazy var graphView: GraphView? = {
+    private var graphView: GraphView? {
        return SREG.context.graphView
-    }()
+    }
     var model: Model {
         return SREG.model
     }
@@ -29,6 +29,7 @@ class SelectionState: State {
     
     override func tapBegan(recognizer: UITapGestureRecognizer) {
         print("Tap began -> ", recognizer.location(in: graphView))
+        
     }
     
     override func tapChanged(recognizer: UITapGestureRecognizer) {

@@ -16,6 +16,7 @@ class GraphView: UIView {
     var elementPainters = [SymbolPainter]()
     var painter: SymbolPainter?
     let selectionHandler = SelectionHandleHandler()
+    var gesture: TapBeganGesture?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,6 +113,13 @@ extension GraphView {
             break
         }
     }
+    
+    //since tapBegin is not called from gestureRecognizer, we have to send/simulate location from touchesBegan method
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        gesture = TapBeganGesture()
+        gesture?.location = touches.first?.location(in: self)
+        currentState.tapBegan(recognizer: gesture!)
+    }
 }
 
 extension GraphView {
@@ -150,4 +158,10 @@ extension GraphView {
     }
 }
 
-
+class TapBeganGesture: UITapGestureRecognizer {
+    var location: CGPoint?
+    
+    override func location(in view: UIView?) -> CGPoint {
+        return self.location!
+    }
+}
