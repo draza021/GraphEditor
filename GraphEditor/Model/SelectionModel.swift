@@ -42,5 +42,6 @@ extension SelectionModel {
     private func fireSelectionChanged(symbols: [Symbol]) {
         let nc = NotificationCenter.default
         nc.post(name: .notificationSelectionChanged, object: nil, userInfo: ["symbols": symbols])
+        print("notificationSelectionChanged fired!")
     }
 }

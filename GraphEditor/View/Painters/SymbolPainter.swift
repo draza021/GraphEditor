@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SymbolPainter {
+class SymbolPainter: Hashable {
+    static func == (lhs: SymbolPainter, rhs: SymbolPainter) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
     let symbol: Symbol
     
     init(_ symbol: Symbol) {
@@ -17,5 +21,9 @@ class SymbolPainter {
     
     func draw(context: CGContext) {
         // abstract
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        _ = hasher.finalize()
     }
 }

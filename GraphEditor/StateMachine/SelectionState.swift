@@ -29,23 +29,11 @@ class SelectionState: State {
     
     override func tapBegan(recognizer: UITapGestureRecognizer) {
         print("Tap began -> ", recognizer.location(in: graphView))
-        
-    }
-    
-    override func tapChanged(recognizer: UITapGestureRecognizer) {
-        print("Tap changed -> ", recognizer.location(in: graphView))
-    }
-    
-    override func tapEnded(recognizer: UITapGestureRecognizer) {
-        print("Tap ended -> ", recognizer.location(in: graphView))
         let position = recognizer.location(in: graphView)
-
-        
-        
         SREG.context.lastPosition = transformToUserSpace(point: position)
         SREG.context.symbolHit = ModelHelper.symbolAtPoint(SREG.context.lastPosition!)
         
-        if SREG.selection.selection.count > 0 {  // if selection already exists
+        if SREG.selection.selection.count > 0 {
             for symbol in SREG.selection.selection {
                 let handle = selectionHandler.getHandleForSymbol(symbol: symbol, point: SREG.context.lastPosition!, scale: 1)
                 if handle != .none {
@@ -67,14 +55,22 @@ class SelectionState: State {
             }
             return
         }
+    }
+    
+    override func tapChanged(recognizer: UITapGestureRecognizer) {
+        print("Tap changed -> ", recognizer.location(in: graphView))
+    }
+    
+    override func tapEnded(recognizer: UITapGestureRecognizer) {
+        print("Tap ended -> ", recognizer.location(in: graphView))
+        let position = recognizer.location(in: graphView)
         
-        if freshlySelected && SREG.context.symbolHit != nil {
+        if !freshlySelected && SREG.context.symbolHit != nil {
             SREG.selection.removeFromSelection(symbol: SREG.context.symbolHit!)
             return
         }
         freshlySelected = false
         
-        //add new symbol
         if freeToAdd {
             addNewSymbol(position)
         } else {

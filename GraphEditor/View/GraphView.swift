@@ -43,7 +43,9 @@ class GraphView: UIView {
         }
         
         // draws selection handles
-        selectionHandler.paintSelectionHandles(context: currentContext, selection: SREG.selection, scale: SREG.context.scale)
+        selectionHandler.paintSelectionHandles(context: currentContext,
+                                               selection: SREG.selection,
+                                               scale: SREG.context.scale)
         
         currentContext.restoreGState()
     }
@@ -122,6 +124,7 @@ extension GraphView {
     }
 }
 
+// MARK: - Private func
 extension GraphView {
     private func setupInstance() {
         addTapGestureRecognizer()
@@ -134,10 +137,41 @@ extension GraphView {
     
     private func addObservers() {
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(handleSymbolAddedNotification(_:)), name: NSNotification.Name.notificationSymbolAdded, object: nil)
+        nc.addObserver(self, selector: #selector(handleDidAddSymbols(_:)), name: NSNotification.Name.notificationSymbolAdded, object: nil)
+        nc.addObserver(self, selector: #selector(handleDidSelectSymbols(_:)), name: NSNotification.Name.notificationSelectionChanged, object: nil)
     }
     
-    @objc func handleSymbolAddedNotification(_ notification: Notification) {
+    private func redraw() {
+        setNeedsDisplay()
+        model.logSymbolsToConsole()
+    }
+    
+    private func drawLast(selectedSymbols: [Symbol]) {
+        var selectedPainters = [SymbolPainter]()
+        for symbol in selectedSymbols {
+            for painter in elementPainters {
+                if symbol == painter.symbol {
+                    selectedPainters.append(painter)
+                }
+            }
+        }
+        //elementPainters = Array(Set(elementPainters).subtracting(selectedPainters))
+        elementPainters.append(contentsOf: selectedPainters)
+    }
+}
+
+// MARK: - Used to override tapGesture locationInView method
+class TapBeganGesture: UITapGestureRecognizer {
+    var location: CGPoint?
+    
+    override func location(in view: UIView?) -> CGPoint {
+        return self.location!
+    }
+}
+
+// MARK: - Notification handler methods
+extension GraphView {
+    @objc func handleDidAddSymbols(_ notification: Notification) {
         print("notificationSymbolsAdded received!")
         if let userInfo = notification.userInfo as? [String: Any] {
             if let symbols = userInfo["symbols"] as? [Symbol] {
@@ -152,16 +186,13 @@ extension GraphView {
         redraw()
     }
     
-    func redraw() {
-        setNeedsDisplay()
-        model.logSymbolsToConsole()
-    }
-}
-
-class TapBeganGesture: UITapGestureRecognizer {
-    var location: CGPoint?
-    
-    override func location(in view: UIView?) -> CGPoint {
-        return self.location!
+    @objc func handleDidSelectSymbols(_ notification: Notification) {
+        print("notificationSelectionChanged received")
+        if let userInfo = notification.userInfo as? [String: Any] {
+            if let symbols = userInfo["symbols"] as? [Symbol] {
+                drawLast(selectedSymbols: symbols)
+                redraw()
+            }
+        }
     }
 }
