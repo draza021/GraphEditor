@@ -10,7 +10,7 @@ import UIKit
 
 class SelectionHandleHandler: GenericSelectionHandler {
     func paintSelectionHandle(context: CGContext, position: CGPoint, scale: CGFloat) {
-        let size: CGFloat = 16
+        let size: CGFloat = 8
         context.setFillColor(red: 0, green: 0, blue: 0, alpha: 1)
         position.applying(SREG.context.transform)
         context.fill(CGRect(x: position.x - size / 2, y: position.y - size / 2, width: size, height: size))

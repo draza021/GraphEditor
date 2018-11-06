@@ -10,6 +10,12 @@ import Foundation
 
 class SelectionModel {
     var selection = [Symbol]()
+    var count: Int {
+        return selection.count
+    }
+    var elements: [Symbol] {
+        return selection
+    }
     
     func addToSelection(symbol: Symbol) {
         selection.append(symbol)

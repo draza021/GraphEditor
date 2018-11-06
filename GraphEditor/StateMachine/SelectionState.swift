@@ -77,6 +77,19 @@ class SelectionState: State {
             freeToAdd = true
         }
     }
+    
+    override func panBegan(recognizer: UIPanGestureRecognizer) {
+        print("panBegan called")
+        if SREG.selection.count > 0 {
+            for symbol in SREG.selection.elements {
+                let handle = selectionHandler.getHandleForSymbol(symbol: symbol, point: SREG.context.lastPosition!, scale: SREG.context.scale)
+                if handle != .none {
+                    SREG.context.symbolHit = symbol
+                     
+                }
+            }
+        }
+    }
 }
 
 // MARK: - Private func

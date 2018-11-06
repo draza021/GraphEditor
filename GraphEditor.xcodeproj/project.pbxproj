@@ -21,6 +21,7 @@
 		C226ED69219078830028C640 /* GenericSelectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED68219078830028C640 /* GenericSelectionHandler.swift */; };
 		C226ED6B21907ABB0028C640 /* SelectionHandleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED6A21907ABB0028C640 /* SelectionHandleHandler.swift */; };
 		C24694E02189979500775B4F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24694DF2189979500775B4F /* Model.swift */; };
+		C248AD5A2191D82000E7993E /* ResizeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C248AD592191D82000E7993E /* ResizeState.swift */; };
 		C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B1218AF29000E70265 /* ServiceRegistry.swift */; };
 		C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B3218AF88A00E70265 /* GenericState.swift */; };
 		C28C77B6218AF9E000E70265 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C77B5218AF9E000E70265 /* State.swift */; };
@@ -49,6 +50,7 @@
 		C226ED68219078830028C640 /* GenericSelectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionHandler.swift; sourceTree = "<group>"; };
 		C226ED6A21907ABB0028C640 /* SelectionHandleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHandleHandler.swift; sourceTree = "<group>"; };
 		C24694DF2189979500775B4F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C248AD592191D82000E7993E /* ResizeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeState.swift; sourceTree = "<group>"; };
 		C28C77B1218AF29000E70265 /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		C28C77B3218AF88A00E70265 /* GenericState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericState.swift; sourceTree = "<group>"; };
 		C28C77B5218AF9E000E70265 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				C28C77B5218AF9E000E70265 /* State.swift */,
 				C28C77B7218B2DF300E70265 /* SelectionState.swift */,
 				C28C77BB218B341900E70265 /* Context.swift */,
+				C248AD592191D82000E7993E /* ResizeState.swift */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C226ED65219068C40028C640 /* ModelHelper.swift in Sources */,
 				C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */,
 				C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */,
+				C248AD5A2191D82000E7993E /* ResizeState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
