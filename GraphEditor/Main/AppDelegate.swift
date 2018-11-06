@@ -8,13 +8,18 @@
 
 import UIKit
 
+var SREG = (UIApplication.shared.delegate as! AppDelegate).sreg!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var sreg: ServiceRegistry?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        sreg = ServiceRegistry()
+        SREG = sreg!
         // Override point for customization after application launch.
         return true
     }

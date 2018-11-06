@@ -10,11 +10,12 @@ import UIKit
 
 class GraphView: UIView {
     var model: Model {
-       return ServiceRegistry.sharedInstance.model
+       return SREG.model
     }
     private var currentState: State = SelectionState()
     var elementPainters = [SymbolPainter]()
     var painter: SymbolPainter?
+    let selectionHandler = SelectionHandleHandler()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,9 +36,13 @@ class GraphView: UIView {
     override func draw(_ rect: CGRect) {
         guard let currentContext = UIGraphicsGetCurrentContext() else { return }
         currentContext.saveGState()
+        
         for painter in elementPainters {
             painter.draw(context: currentContext)
         }
+        
+        // draws selection handles
+        selectionHandler.paintSelectionHandles(context: currentContext, selection: SREG.selection, scale: SREG.context.scale)
         
         currentContext.restoreGState()
     }
@@ -115,7 +120,7 @@ extension GraphView {
         addPinchGestureRecognizer()
         addPanGestureRecognizer()
         addObservers()
-        ServiceRegistry.sharedInstance.context.graphView = self
+        SREG.context.graphView = self
         print("context.graphview has been SET")
     }
     

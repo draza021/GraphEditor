@@ -18,7 +18,7 @@ class State: GenericState {
     }
     
     func transformToUserSpace(point: CGPoint) -> CGPoint {
-        return point.applying(ServiceRegistry.sharedInstance.context.transform)
+        return point.applying(SREG.context.transform)
     }
     
     func tapBegan(recognizer: UITapGestureRecognizer) {

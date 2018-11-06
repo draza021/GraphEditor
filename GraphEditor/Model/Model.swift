@@ -10,6 +10,7 @@ import Foundation
 
 final class Model: GenericModel {
     private(set) var symbols: [Symbol] = []
+    private(set) var selection: [Symbol] = []
     
     func addSymbol(symbol: Symbol) {
         symbols.append(symbol)

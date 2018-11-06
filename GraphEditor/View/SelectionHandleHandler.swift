@@ -12,7 +12,7 @@ class SelectionHandleHandler: GenericSelectionHandler {
     func paintSelectionHandle(context: CGContext, position: CGPoint, scale: CGFloat) {
         let size: CGFloat = 16
         context.setFillColor(red: 0, green: 0, blue: 0, alpha: 1)
-        position.applying(ServiceRegistry.sharedInstance.context.transform)
+        position.applying(SREG.context.transform)
         context.fill(CGRect(x: position.x - size / 2, y: position.y - size / 2, width: size, height: size))
     }
     
@@ -65,9 +65,9 @@ class SelectionHandleHandler: GenericSelectionHandler {
     
     func paintSelectionHandles(context: CGContext, selection: SelectionModel, scale: CGFloat) {
         for symbol in selection.selection {
-            SymbolHandle.allCases.forEach { (symbolHandle) in
-                if symbolHandle != .none {
-                    paintSelectionHandle(context: context, position: getHandlePoint(topLeft: symbol.position, size: symbol.size, handlePosition: symbolHandle), scale: scale)
+            for symbolHandler in SymbolHandle.allCases {
+                if symbolHandler != .none {
+                    paintSelectionHandle(context: context, position: getHandlePoint(topLeft: symbol.position, size: symbol.size, handlePosition: symbolHandler), scale: scale)
                 }
             }
         }

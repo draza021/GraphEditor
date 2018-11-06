@@ -9,12 +9,11 @@
 import Foundation
 
 class ServiceRegistry {
-    static let sharedInstance = ServiceRegistry()
     let model: Model
     let context: Context
     let selection: SelectionModel
     
-    private init() {
+    init() {
         model = Model()
         context = Context()
         selection = SelectionModel()

@@ -10,7 +10,7 @@ import UIKit
 
 class ModelHelper {
     static func symbolAtPoint(_ point: CGPoint) -> Symbol? {
-        if let painters = ServiceRegistry.sharedInstance.context.graphView?.elementPainters {
+        if let painters = SREG.context.graphView?.elementPainters {
             for (key, _) in painters.enumerated() {
                 let symbol = painters[key].symbol
                 if symbol.getAsRectangle().contains(point) {

@@ -12,13 +12,13 @@ class SelectionState: State {
     private var freshlySelected: Bool = false
     private var freeToAdd: Bool = true
     private lazy var graphView: GraphView? = {
-       return ServiceRegistry.sharedInstance.context.graphView
+       return SREG.context.graphView
     }()
     var model: Model {
-        return ServiceRegistry.sharedInstance.model
+        return SREG.model
     }
     var count: String {
-        return String(ServiceRegistry.sharedInstance.model.symbols.count)
+        return String(SREG.model.symbols.count)
     }
     let selectionHandler = SelectionHandleHandler()
     
@@ -39,34 +39,36 @@ class SelectionState: State {
         print("Tap ended -> ", recognizer.location(in: graphView))
         let position = recognizer.location(in: graphView)
 
-        ServiceRegistry.sharedInstance.context.lastPosition = transformToUserSpace(point: position)
-        ServiceRegistry.sharedInstance.context.symbolHit = ModelHelper.symbolAtPoint(ServiceRegistry.sharedInstance.context.lastPosition!)
         
-        if ServiceRegistry.sharedInstance.selection.selection.count > 0 {
-            for symbol in ServiceRegistry.sharedInstance.selection.selection {
-                let handle = selectionHandler.getHandleForSymbol(symbol: symbol, point: ServiceRegistry.sharedInstance.context.lastPosition!, scale: 1)
+        
+        SREG.context.lastPosition = transformToUserSpace(point: position)
+        SREG.context.symbolHit = ModelHelper.symbolAtPoint(SREG.context.lastPosition!)
+        
+        if SREG.selection.selection.count > 0 {  // if selection already exists
+            for symbol in SREG.selection.selection {
+                let handle = selectionHandler.getHandleForSymbol(symbol: symbol, point: SREG.context.lastPosition!, scale: 1)
                 if handle != .none {
                     return
                 }
             }
-            if ServiceRegistry.sharedInstance.context.symbolHit == nil {
+            if SREG.context.symbolHit == nil {
                 freeToAdd = false
-                ServiceRegistry.sharedInstance.selection.clearSelection()
+                SREG.selection.clearSelection()
                 return
             }
         }
         
-        if ServiceRegistry.sharedInstance.context.symbolHit != nil {
-            if ServiceRegistry.sharedInstance.selection.selection.contains(ServiceRegistry.sharedInstance.context.symbolHit!) {
+        if SREG.context.symbolHit != nil {
+            if !SREG.selection.selection.contains(SREG.context.symbolHit!) {
                 freeToAdd = false
-                ServiceRegistry.sharedInstance.selection.addToSelection(symbol: ServiceRegistry.sharedInstance.context.symbolHit!)
+                SREG.selection.addToSelection(symbol: SREG.context.symbolHit!)
                 freshlySelected = true
             }
             return
         }
         
-        if freshlySelected && ServiceRegistry.sharedInstance.context.symbolHit != nil {
-            ServiceRegistry.sharedInstance.selection.removeFromSelection(symbol: ServiceRegistry.sharedInstance.context.symbolHit!)
+        if freshlySelected && SREG.context.symbolHit != nil {
+            SREG.selection.removeFromSelection(symbol: SREG.context.symbolHit!)
             return
         }
         freshlySelected = false
