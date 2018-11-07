@@ -12,10 +12,12 @@ class ServiceRegistry {
     let model: Model
     let context: Context
     let selection: SelectionModel
+    let commandManager: CommandManager
     
     init() {
         model = Model()
         context = Context()
         selection = SelectionModel()
+        commandManager = CommandManager()
     }
 }

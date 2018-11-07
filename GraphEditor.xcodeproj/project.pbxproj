@@ -14,6 +14,10 @@
 		C21842C12188A03D003CB121 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21842BF2188A03D003CB121 /* Main.storyboard */; };
 		C21842C32188A03D003CB121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21842C22188A03D003CB121 /* Assets.xcassets */; };
 		C21842C62188A03D003CB121 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21842C42188A03D003CB121 /* LaunchScreen.storyboard */; };
+		C21DCEF92192D6AF001C2229 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEF82192D6AF001C2229 /* Command.swift */; };
+		C21DCEFB2192D826001C2229 /* CommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEFA2192D826001C2229 /* CommandManager.swift */; };
+		C21DCEFD2192DD66001C2229 /* CommandAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEFC2192DD66001C2229 /* CommandAbstract.swift */; };
+		C21DCEFF2192DDCD001C2229 /* CommandAddSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEFE2192DDCD001C2229 /* CommandAddSymbols.swift */; };
 		C22259AF2189AD27002373CA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259AE2189AD27002373CA /* GraphView.swift */; };
 		C22259B22189E866002373CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259B12189E866002373CA /* Extensions.swift */; };
 		C226ED65219068C40028C640 /* ModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED64219068C40028C640 /* ModelHelper.swift */; };
@@ -43,6 +47,10 @@
 		C21842C22188A03D003CB121 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C21842C52188A03D003CB121 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C21842C72188A03D003CB121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C21DCEF82192D6AF001C2229 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		C21DCEFA2192D826001C2229 /* CommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandManager.swift; sourceTree = "<group>"; };
+		C21DCEFC2192DD66001C2229 /* CommandAbstract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandAbstract.swift; sourceTree = "<group>"; };
+		C21DCEFE2192DDCD001C2229 /* CommandAddSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandAddSymbols.swift; sourceTree = "<group>"; };
 		C22259AE2189AD27002373CA /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C22259B12189E866002373CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C226ED64219068C40028C640 /* ModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHelper.swift; sourceTree = "<group>"; };
@@ -151,6 +159,10 @@
 		C28C77B0218AF24B00E70265 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				C21DCEF82192D6AF001C2229 /* Command.swift */,
+				C21DCEFA2192D826001C2229 /* CommandManager.swift */,
+				C21DCEFC2192DD66001C2229 /* CommandAbstract.swift */,
+				C21DCEFE2192DDCD001C2229 /* CommandAddSymbols.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -280,10 +292,13 @@
 				C226ED6B21907ABB0028C640 /* SelectionHandleHandler.swift in Sources */,
 				C28C77BC218B341900E70265 /* Context.swift in Sources */,
 				C2070351218C5727002586E7 /* PainterRectangle.swift in Sources */,
+				C21DCEFB2192D826001C2229 /* CommandManager.swift in Sources */,
 				C28C77B6218AF9E000E70265 /* State.swift in Sources */,
 				C22259B22189E866002373CA /* Extensions.swift in Sources */,
 				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
+				C21DCEFF2192DDCD001C2229 /* CommandAddSymbols.swift in Sources */,
 				C207034F218C5593002586E7 /* SymbolPainter.swift in Sources */,
+				C21DCEF92192D6AF001C2229 /* Command.swift in Sources */,
 				C28C77B8218B2DF300E70265 /* SelectionState.swift in Sources */,
 				C226ED69219078830028C640 /* GenericSelectionHandler.swift in Sources */,
 				C24694E02189979500775B4F /* Model.swift in Sources */,
@@ -291,6 +306,7 @@
 				C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */,
 				C226ED65219068C40028C640 /* ModelHelper.swift in Sources */,
 				C21842BC2188A03D003CB121 /* AppDelegate.swift in Sources */,
+				C21DCEFD2192DD66001C2229 /* CommandAbstract.swift in Sources */,
 				C28C77B4218AF88A00E70265 /* GenericState.swift in Sources */,
 				C248AD5A2191D82000E7993E /* ResizeState.swift in Sources */,
 			);

@@ -104,6 +104,7 @@ extension SelectionState {
         // here we create a symbol and store it in symbols array -> Model.symbols
         // we need to use Command pattern to call command to insert symbol to keep track for undo-ing
         let symbol = Symbol(with: centerPoint, size: size, color: .black, text: "Symbol # \(count)")
-        model.addSymbol(symbol: symbol)
+        SREG.commandManager.addCommand(command: CommandAddSymbols(symbols: [symbol]))
+        //model.addSymbol(symbol: symbol)
     }
 }
