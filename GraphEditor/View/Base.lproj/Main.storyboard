@@ -28,6 +28,11 @@
                                                     <action selector="undoAction:" destination="BYZ-38-t0r" id="WiU-cO-SAK"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem systemItem="redo" id="SYB-Ym-oo4">
+                                                <connections>
+                                                    <action selector="redoAction:" destination="BYZ-38-t0r" id="Mqn-yQ-Qnq"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                     </toolbar>
                                 </subviews>

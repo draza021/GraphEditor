@@ -12,4 +12,8 @@ class ActionManager {
     func undoAction() -> ActionEditUndo {
         return ActionEditUndo()
     }
+    
+    func redoAction() -> ActionEditRedo {
+        return ActionEditRedo()
+    }
 }

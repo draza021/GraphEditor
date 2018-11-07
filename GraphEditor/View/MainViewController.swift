@@ -23,6 +23,11 @@ extension MainViewController {
         print("undoAction tapped")
         SREG.actionManager.undoAction().perform()
     }
+    
+    @IBAction func redoAction(_ sender: UIBarButtonItem) {
+        print("redoAction tapped")
+        SREG.actionManager.redoAction().perform()
+    }
 }
 
 

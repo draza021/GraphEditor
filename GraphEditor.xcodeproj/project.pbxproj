@@ -21,6 +21,7 @@
 		C21DCF0121930E70001C2229 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF0021930E70001C2229 /* ActionManager.swift */; };
 		C21DCF0321930EB7001C2229 /* ActionEditUndo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF0221930EB7001C2229 /* ActionEditUndo.swift */; };
 		C21DCF0521930FB1001C2229 /* ActionAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF0421930FB1001C2229 /* ActionAbstract.swift */; };
+		C21DCF07219319DD001C2229 /* ActionEditRedo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF06219319DD001C2229 /* ActionEditRedo.swift */; };
 		C22259AF2189AD27002373CA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259AE2189AD27002373CA /* GraphView.swift */; };
 		C22259B22189E866002373CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259B12189E866002373CA /* Extensions.swift */; };
 		C226ED65219068C40028C640 /* ModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED64219068C40028C640 /* ModelHelper.swift */; };
@@ -57,6 +58,7 @@
 		C21DCF0021930E70001C2229 /* ActionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionManager.swift; sourceTree = "<group>"; };
 		C21DCF0221930EB7001C2229 /* ActionEditUndo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionEditUndo.swift; sourceTree = "<group>"; };
 		C21DCF0421930FB1001C2229 /* ActionAbstract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionAbstract.swift; sourceTree = "<group>"; };
+		C21DCF06219319DD001C2229 /* ActionEditRedo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionEditRedo.swift; sourceTree = "<group>"; };
 		C22259AE2189AD27002373CA /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C22259B12189E866002373CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C226ED64219068C40028C640 /* ModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHelper.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				C21DCF0021930E70001C2229 /* ActionManager.swift */,
 				C21DCF0221930EB7001C2229 /* ActionEditUndo.swift */,
 				C21DCF0421930FB1001C2229 /* ActionAbstract.swift */,
+				C21DCF06219319DD001C2229 /* ActionEditRedo.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C21842BE2188A03D003CB121 /* MainViewController.swift in Sources */,
+				C21DCF07219319DD001C2229 /* ActionEditRedo.swift in Sources */,
 				C2AC445E2188AB5500AD7F86 /* Symbol.swift in Sources */,
 				C226ED672190713A0028C640 /* SelectionModel.swift in Sources */,
 				C22259AF2189AD27002373CA /* GraphView.swift in Sources */,
