@@ -28,31 +28,35 @@ class CommandManager {
         doCommand()
     }
     
-    private func doCommand() {
+    func doCommand() {
         if currentCommandIndex < commands.count {
             commands[currentCommandIndex].doCommand()
             currentCommandIndex += 1
+            print("-> doCommand")
             commands.forEach({ print("commands ->", $0) })
             print("currentCommandIndex -> ", currentCommandIndex)
         }
     }
     
-    private func undoCommand() {
+    func undoCommand() {
         if currentCommandIndex > 0 {
             currentCommandIndex -= 1
             commands[currentCommandIndex].undoCommand()
+            print("-> undoCommand")
+            commands.forEach({ print("commands ->", $0) })
+            print("currentCommandIndex -> ", currentCommandIndex)
         }
     }
     
-    private func currentCommandIsFirst() -> Bool {
+    func currentCommandIsFirst() -> Bool {
         return currentCommandIndex == 0
     }
     
-    private func currentCommandIsLast() -> Bool {
+    func currentCommandIsLast() -> Bool {
         return currentCommandIndex == commands.count
     }
     
-    private func isEmpty() -> Bool {
+    func isEmpty() -> Bool {
         return commands.count == 0
     }
 }

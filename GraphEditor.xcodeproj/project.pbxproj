@@ -18,6 +18,9 @@
 		C21DCEFB2192D826001C2229 /* CommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEFA2192D826001C2229 /* CommandManager.swift */; };
 		C21DCEFD2192DD66001C2229 /* CommandAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEFC2192DD66001C2229 /* CommandAbstract.swift */; };
 		C21DCEFF2192DDCD001C2229 /* CommandAddSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCEFE2192DDCD001C2229 /* CommandAddSymbols.swift */; };
+		C21DCF0121930E70001C2229 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF0021930E70001C2229 /* ActionManager.swift */; };
+		C21DCF0321930EB7001C2229 /* ActionEditUndo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF0221930EB7001C2229 /* ActionEditUndo.swift */; };
+		C21DCF0521930FB1001C2229 /* ActionAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21DCF0421930FB1001C2229 /* ActionAbstract.swift */; };
 		C22259AF2189AD27002373CA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259AE2189AD27002373CA /* GraphView.swift */; };
 		C22259B22189E866002373CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22259B12189E866002373CA /* Extensions.swift */; };
 		C226ED65219068C40028C640 /* ModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226ED64219068C40028C640 /* ModelHelper.swift */; };
@@ -51,6 +54,9 @@
 		C21DCEFA2192D826001C2229 /* CommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandManager.swift; sourceTree = "<group>"; };
 		C21DCEFC2192DD66001C2229 /* CommandAbstract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandAbstract.swift; sourceTree = "<group>"; };
 		C21DCEFE2192DDCD001C2229 /* CommandAddSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandAddSymbols.swift; sourceTree = "<group>"; };
+		C21DCF0021930E70001C2229 /* ActionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionManager.swift; sourceTree = "<group>"; };
+		C21DCF0221930EB7001C2229 /* ActionEditUndo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionEditUndo.swift; sourceTree = "<group>"; };
+		C21DCF0421930FB1001C2229 /* ActionAbstract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionAbstract.swift; sourceTree = "<group>"; };
 		C22259AE2189AD27002373CA /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C22259B12189E866002373CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C226ED64219068C40028C640 /* ModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHelper.swift; sourceTree = "<group>"; };
@@ -152,6 +158,9 @@
 		C28C77AF218AF23F00E70265 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				C21DCF0021930E70001C2229 /* ActionManager.swift */,
+				C21DCF0221930EB7001C2229 /* ActionEditUndo.swift */,
+				C21DCF0421930FB1001C2229 /* ActionAbstract.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				C2070351218C5727002586E7 /* PainterRectangle.swift in Sources */,
 				C21DCEFB2192D826001C2229 /* CommandManager.swift in Sources */,
 				C28C77B6218AF9E000E70265 /* State.swift in Sources */,
+				C21DCF0521930FB1001C2229 /* ActionAbstract.swift in Sources */,
 				C22259B22189E866002373CA /* Extensions.swift in Sources */,
 				C2AC445C2188AA4600AD7F86 /* GenericSymbol.swift in Sources */,
 				C21DCEFF2192DDCD001C2229 /* CommandAddSymbols.swift in Sources */,
@@ -301,6 +311,8 @@
 				C21DCEF92192D6AF001C2229 /* Command.swift in Sources */,
 				C28C77B8218B2DF300E70265 /* SelectionState.swift in Sources */,
 				C226ED69219078830028C640 /* GenericSelectionHandler.swift in Sources */,
+				C21DCF0121930E70001C2229 /* ActionManager.swift in Sources */,
+				C21DCF0321930EB7001C2229 /* ActionEditUndo.swift in Sources */,
 				C24694E02189979500775B4F /* Model.swift in Sources */,
 				C28C77B2218AF29000E70265 /* ServiceRegistry.swift in Sources */,
 				C2AC44592188A9C800AD7F86 /* GenericModel.swift in Sources */,

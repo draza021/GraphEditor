@@ -52,12 +52,14 @@ final class Model: GenericModel {
 extension Model {
     func fireSymbolsAdded(symbols: [Symbol]) {
         let nc = NotificationCenter.default
-        nc.post(name: NSNotification.Name.notificationSymbolAdded, object: nil, userInfo: ["symbols": symbols])
+        nc.post(name: .notificationSymbolsAdded, object: nil, userInfo: ["symbols": symbols])
         print("notificationSymbolsAdded fired!")
     }
     
     func fireSymbolsRemoved(symbols: [Symbol]) {
-        // TODO: add notifications
+        let nc = NotificationCenter.default
+        nc.post(name: .notificationSymbolsRemoved, object: nil, userInfo: ["symbols": symbols])
+        print("notificationSymbolsRemoved fired!", symbols)
     }
     
     func fireModelUpdate() {

@@ -13,7 +13,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+    }
+    
+}
+
+// MARK: - Actions
+extension MainViewController {
+    @IBAction func undoAction(_ sender: UIBarButtonItem) {
+        print("undoAction tapped")
+        SREG.actionManager.undoAction().perform()
     }
 }
 

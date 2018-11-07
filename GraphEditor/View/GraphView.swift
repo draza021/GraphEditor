@@ -137,8 +137,9 @@ extension GraphView {
     
     private func addObservers() {
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(handleDidAddSymbols(_:)), name: NSNotification.Name.notificationSymbolAdded, object: nil)
-        nc.addObserver(self, selector: #selector(handleDidSelectSymbols(_:)), name: NSNotification.Name.notificationSelectionChanged, object: nil)
+        nc.addObserver(self, selector: #selector(handleDidAddSymbols(_:)), name: .notificationSymbolsAdded, object: nil)
+        nc.addObserver(self, selector: #selector(handleDidSelectSymbols(_:)), name: .notificationSelectionChanged, object: nil)
+        nc.addObserver(self, selector: #selector(handleDidRemoveSymbols(_:)), name: .notificationSymbolsRemoved, object: nil)
     }
     
     private func redraw() {
@@ -194,5 +195,14 @@ extension GraphView {
                 redraw()
             }
         }
+    }
+    
+    @objc func handleDidRemoveSymbols(_ notification: Notification) {
+        print("notificationSymbolsRemoved received")
+        elementPainters.removeAll()
+        for symbol in SREG.model.symbols {
+            elementPainters.append(PainterRectangle(symbol))
+        }
+        redraw()
     }
 }

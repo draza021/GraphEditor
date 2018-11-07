@@ -9,7 +9,8 @@
 import Foundation
 
 extension Notification.Name {
-    static let notificationSymbolAdded = NSNotification.Name("notificationSymbolAdded")
+    static let notificationSymbolsAdded = NSNotification.Name("notificationSymbolAdded")
     static let notificationSelectionChanged = NSNotification.Name("notificationSelectionChanged")
+    static let notificationSymbolsRemoved = NSNotification.Name("notificationSymbolRemoved")
 }
 
