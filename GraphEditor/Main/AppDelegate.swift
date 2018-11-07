@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         sreg = ServiceRegistry()
-        SREG = sreg!
+        if let serviceRegistry = sreg {
+            SREG = serviceRegistry
+        }
         // Override point for customization after application launch.
         return true
     }
